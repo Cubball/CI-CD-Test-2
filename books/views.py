@@ -7,3 +7,9 @@ def main(request):
     return render(request, "book_list.html", {
         'books': books
     });
+
+def authors(request):
+    authors = Author.objects.filter()
+    return render(request, "author_list.html", {
+        'authors': authors,
+    })
