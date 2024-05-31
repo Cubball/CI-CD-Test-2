@@ -19,3 +19,9 @@ def authors(request):
     return render(request, "author_list.html", {
         'authors': authors,
     })
+
+def author_detail(request, pk):
+    author = Author.objects.filter(pk=pk)
+    return render(request, "author_detail.html", {
+        'author': author,
+    })
