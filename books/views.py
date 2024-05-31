@@ -8,6 +8,12 @@ def main(request):
         'books': books
     });
 
+def book_detail(request, pk):
+    book = Book.objects.filter(pk=pk)
+    return render(request, "book_detail.html", {
+        'author': book,
+    })
+
 def authors(request):
     authors = Author.objects.filter()
     return render(request, "author_list.html", {
