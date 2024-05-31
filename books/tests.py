@@ -15,3 +15,12 @@ class Tests(TestCase):
     def test_books_list_view_returns_books(self):
         response = self.client.get('/')
         self.assertContains(response, self.book.title)
+
+    def test_authors_list_view_returns_correct_template(self):
+        response = self.client.get('/authors')
+        self.assertTemplateUsed(response, 'author_list.html')
+
+    def test_authors_list_view_returns_authors(self):
+        response = self.client.get('/authors')
+        for author in self.authors:
+            self.assertContains(response, author.name)
